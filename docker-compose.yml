@@ -1,0 +1,25 @@
+version: '2'
+services:
+  php:
+    build:
+      context: ./docker/php
+    depends_on:
+      - sample-db
+    cap_add:
+      - SYS_PTRACE
+    volumes:
+      - ./www/:/app
+    ports:
+      - "8080:80"
+  sample-db:
+    image: "leafney/docker-alpine-mysql:latest"
+    volumes:
+      - ./docker/_data/mysql:/var/lib/mysql
+      - ./docker/mysql/custom.cnf:/etc/mysql/conf.d/custom.cnf
+    environment:
+      MYSQL_ROOT_PWD: trustme
+      MYSQL_USER: sample
+      MYSQL_USER_PWD: trustme
+      MYSQL_USER_DB: sample
+    ports:
+      - "3306:3306"
