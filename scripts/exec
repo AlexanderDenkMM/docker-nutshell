@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+docker exec -t dockernutshell_php_1 "${@:1}"

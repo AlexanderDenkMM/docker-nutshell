@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+./scripts/exec bash -c "cd app && composer update"
