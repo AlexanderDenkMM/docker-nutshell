@@ -1,0 +1,6 @@
+{
+    "name": "my first docker project",
+    "require": {
+        "catfan/Medoo": "*"
+    }
+}
